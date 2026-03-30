@@ -1,0 +1,218 @@
+/*
+
+style.css
+
+This CSS file styles plain div elements turning them into "alien frogs".
+The eyes are built with ::before (left eye) and ::after (right eye) pseudo-elements
+so that the HTML frog divs stay clean and contain only the mouth text "--".
+
+Layout:
+  - The .frogs-container uses flexbox with flex-wrap to fill the page
+    left-to-right and wrap automatically when the row runs out of space.
+
+Combinations:
+  type1 (green)  + big   → bright green eyes
+  type1 (green)  + small → dark green eyes
+  type2 (orange) + big   → bright pink eyes
+  type2 (orange) + small → dark red eyes
+
+Hover:
+  :hover simulates "touching" the frog → eyes turn black (no JavaScript needed).
+
+*/
+
+
+/* --- RESET & BOX-SIZING ------------------------------------------ */
+
+* , *::after , *::before {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    background-color: beige;
+}
+
+.exception {
+    box-sizing: content-box;
+    font-size: 24px;
+}
+
+
+/* --- CUSTOM PROPERTIES (CSS variables) ---------------------------- */
+
+:root {
+    /* Green frog */
+    --green-body:        rgb(94,  179, 94);
+    --green-eyes-bright: rgb(167, 219, 75);   /* big frog:   light / bright eyes */
+    --green-eyes-dark:   rgb(45,  110, 45);   /* small frog: dark eyes           */
+
+    /* Orange frog */
+    --orange-body:        rgb(213, 85,  40);
+    --orange-eyes-bright: rgb(255, 185, 185); /* big frog:   light / bright eyes */
+    --orange-eyes-dark:   rgb(155, 45,  20);  /* small frog: dark eyes           */
+
+    /* Touched state */
+    --eyes-hover: black;
+}
+
+
+/* --- PAGE TITLE --------------------------------------------------- */
+
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+}
+
+
+/* --- FROGS CONTAINER ---------------------------------------------- */
+
+/*
+  display: flex  → places frogs in a horizontal row.
+  flex-wrap: wrap → wraps to a new line when there is not enough horizontal space.
+  align-items: flex-start → prevents flex items from stretching to fill the row height;
+                            each frog keeps its own natural height.
+  padding-top: 90px → leaves room above the first row so the eyes (which overflow
+                      upward with a negative "top" value) are not hidden behind the
+                      page edge or the <h1>.
+  gap: 80px 40px → 40 px between columns, 80 px between rows; the 80 px row gap
+                   is large enough to accommodate the eyes that stick out above
+                   each frog body (~35 px for big, ~22 px for small).
+*/
+.frogs-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 80px 40px;
+    padding: 90px 40px 60px;
+}
+
+
+/* --- GENERIC FROG ------------------------------------------------- */
+
+/*
+  position: relative → makes the frog the positioning context for its
+                       ::before and ::after pseudo-elements (the eyes).
+  overflow: visible  → (browser default) allows the eyes to overflow
+                       above the frog body without being clipped.
+*/
+.frog {
+    position: relative;
+    border-radius: 20px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+
+/* --- SIZES -------------------------------------------------------- */
+
+.big {
+    width: 250px;
+    height: 100px;
+}
+
+.small {
+    width: 130px;
+    height: 65px;
+}
+
+
+/* --- EYES (pseudo-elements) --------------------------------------- */
+
+/*
+  content: "O"     → the letter acts as the visible pupil inside the eye circle.
+  position: absolute → takes each eye out of the normal flow and positions it
+                       relative to the parent .frog (which is position: relative).
+  border-radius: 50% → turns the square box into a circle.
+  display: flex + align-items/justify-content → centres the "O" letter inside
+                       the circle both vertically and horizontally.
+*/
+.frog::before ,
+.frog::after {
+    content: "O";
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+/* Eye dimensions and vertical offset for BIG frogs */
+.big::before ,
+.big::after {
+    width: 60px;
+    height: 60px;
+    font-size: 0.5em;
+    /* negative top pulls the eye circle above the frog body */
+    top: -35px;
+}
+
+.big::before { left:  20px; } /* left eye  */
+.big::after  { right: 20px; } /* right eye */
+
+/* Eye dimensions and vertical offset for SMALL frogs */
+.small::before ,
+.small::after {
+    width: 38px;
+    height: 38px;
+    font-size: 0.45em;
+    top: -22px;
+}
+
+.small::before { left:  10px; } /* left eye  */
+.small::after  { right: 10px; } /* right eye */
+
+
+/* --- BODY COLOURS ------------------------------------------------- */
+
+.type1 { background-color: var(--green-body);  }
+.type2 { background-color: var(--orange-body); }
+
+
+/* --- EYE COLOURS -------------------------------------------------- */
+
+/* Green + big → bright eyes */
+.type1.big::before ,
+.type1.big::after {
+    background-color: var(--green-eyes-bright);
+}
+
+/* Green + small → dark eyes; white text keeps "O" legible on dark bg */
+.type1.small::before ,
+.type1.small::after {
+    background-color: var(--green-eyes-dark);
+    color: white;
+}
+
+/* Orange + big → bright eyes */
+.type2.big::before ,
+.type2.big::after {
+    background-color: var(--orange-eyes-bright);
+}
+
+/* Orange + small → dark eyes; white text keeps "O" legible on dark bg */
+.type2.small::before ,
+.type2.small::after {
+    background-color: var(--orange-eyes-dark);
+    color: white;
+}
+
+
+/* --- HOVER STATE -------------------------------------- */
+
+/*
+  :hover simulates the frog being touched.
+  Both eyes turn black; text colour switches to white so the "O" stays visible.
+  No JavaScript is required because :hover is a pure CSS pseudo-class.
+*/
+.frog:hover::before ,
+.frog:hover::after {
+    background-color: var(--eyes-hover);
+    color: white;
+}

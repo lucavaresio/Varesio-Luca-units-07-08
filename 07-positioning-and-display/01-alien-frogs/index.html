@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Alien Frogs</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Luca Varesio">
+        <meta name="viewport" content="width=device-width , initial-scale=1">
+        <meta name="description" content="Website that uses div elements to create alien frogs and arranges them on the page using display and position properties in CSS">
+        <link rel="stylesheet" href="./assets/styles/style.css" />
+    </head>
+    <body>
+        <h1>Alien Frogs</h1>
+        <hr />
+        <!--
+            All four possible frog combinations are shown:
+            type1 = green body  |  type2 = orange body
+            big   = bright eyes |  small  = dark eyes
+
+            The eyes are created entirely in CSS using ::before and ::after pseudo-elements,
+            so each frog div only needs its class names and the mouth text "--".
+
+            The frogs are repeated several times to fill the page
+            and to demonstrate the left-to-right wrapping behaviour.
+        -->
+        <div class="frogs-container">
+            <div class="frog type1 big">--</div>
+            <div class="frog type2 big">--</div>
+            <div class="frog type1 small">--</div>
+            <div class="frog type2 small">--</div>
+        </div>
+    </body>
+</html>
