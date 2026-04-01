@@ -124,10 +124,10 @@ h1 {
 /* --- EYES (pseudo-elements) --------------------------------------- */
 
 /*
-  content: "O"     → the letter acts as the visible pupil inside the eye circle.
-  position: absolute → takes each eye out of the normal flow and positions it
+  content: "O" the letter acts as the visible pupil inside the eye circle.
+  position: absolute takes each eye out of the normal flow and positions it
                        relative to the parent .frog (which is position: relative).
-  border-radius: 50% → turns the square box into a circle.
+  border-radius: 50% turns the square box into a circle.
   display: flex + align-items/justify-content → centres the "O" letter inside
                        the circle both vertically and horizontally.
 */
@@ -177,20 +177,20 @@ h1 {
 
 /* --- EYE COLOURS -------------------------------------------------- */
 
-/* Green + big → bright eyes */
+/* Green + big bright eyes */
 .type1.big::before ,
 .type1.big::after {
     background-color: var(--green-eyes-bright);
 }
 
-/* Green + small → dark eyes; white text keeps "O" legible on dark bg */
+/* Green + small dark eyes; white text keeps "O" legible on dark bg */
 .type1.small::before ,
 .type1.small::after {
     background-color: var(--green-eyes-dark);
     color: white;
 }
 
-/* Orange + big → bright eyes */
+/* Orange + big bright eyes */
 .type2.big::before ,
 .type2.big::after {
     background-color: var(--orange-eyes-bright);
