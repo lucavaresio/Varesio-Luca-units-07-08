@@ -1,0 +1,112 @@
+/*
+style.css
+
+This css file is used for style the html elements and 
+to position them in page
+
+In this css file the elements contains the propriety:
+    - position
+    - margin
+    - float
+*/
+
+/* Import for Inter e Montserrat font families */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap');
+
+* , *::after , *::before {
+    box-sizing: inherit; 
+}
+
+html {
+    background-color: beige;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 24px; /* Default size of the character in page */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------------HEADER---------------------------------------------------------------------------------- */
+header {
+    background-color: lightblue;
+    width: 100%; /* Sostituito 100vw con 100% per evitare scroll orizzontali dovuti ai bordi */
+    height: 150px;
+    top: 0px; 
+    position: sticky; 
+    border: 2px dotted grey;
+    z-index: 100; /* Assicura che l'header rimanga sopra il contenuto durante lo scroll */
+}
+
+header h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin: 0; /* Rimuove il margine di default per eliminare lo spazio beige in alto */
+    padding: 40px;
+}
+
+/* ------------------------------MAIN------------------------------------------------------------------------- */
+
+main {
+    /* Rimosso display: flex */
+    border: 2px dotted grey;
+    width: 100%;
+}
+
+/* ------------------------------ASIDE------------------------------------------------------------------------- */
+
+aside {
+    width: 15%; 
+    background-color: brown;
+    float: left; /* Allinea la sidebar a sinistra */
+    height: 150vh; /* Altezza basata sulla visuale (viewport height) */
+    border: 2px dotted grey;
+    font-family: 'Inter', sans-serif;
+    padding: 10px;
+}
+
+/* ---------------------------COLUMNS-------------------------------------------------------------------- */
+
+#columns-container {
+    width: 85%; /* It occupies 85% of the main area. */
+    float: left; /* It is positioned next to the sidebar. */
+    border: 2px dotted grey;
+}
+
+.columns {
+    width: 50%; /* Divides the parent container exactly in half. */
+    float: left; /* It displays the two columns side by side. */
+    border: 2px dotted grey;
+    font-family: 'Inter', sans-serif;
+}
+
+.columns h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    padding: 10px;
+    margin: 0;
+}
+
+.columns p {
+    padding: 20px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ----------------------FOOTER--------------------------------------------------------------------------- */
+
+footer {
+    /* clear: both; Crucial: it clears the preceding floats and positions itself correctly underneath. */
+    background-color: black;
+    width: 100%;
+    height: 150px;
+    color: white;
+    position: fixed; /* The footer el */
+    border: 2px dotted grey;
+    padding: 20px;
+    text-align: center;
+    bottom: 0; /* With the bottom propriety the footer element is 0px away from the container. */
+}
