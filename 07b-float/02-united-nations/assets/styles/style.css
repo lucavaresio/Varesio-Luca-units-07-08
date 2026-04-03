@@ -1,0 +1,136 @@
+/*
+
+style.css
+
+the style css resource style the entire page.
+
+The entire list is on the row with the image,
+the name and the number of the population
+
+*/
+
+/* 
+
+Pseudo-class :root for collect the single custom color
+used in the css file
+
+*/
+
+/* Import for the 2 font of header and span */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap');
+
+* , *::after , *::before {
+    box-sizing: inherit;
+}
+
+:root {
+    --background-color-page: rgb(203, 203, 255);
+    --background-color-header: rgb(106, 106, 197);
+    --background-color-for-row: rgb(231, 231, 247);
+    --background-color-row-hover: rgb(156, 156, 165);;
+}
+
+html {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 12px; /* default size of the font */
+    background-color: rgb(203, 203, 255);
+}
+
+/* ------------------- HEADER ------------------ */
+
+header {
+    background-color: var(--background-color-header);
+    display: inline-block; /* For align the header element in page center */
+    height: 90px;
+    width: 100%; /* 100vw for take the entire row on the page */
+    box-shadow: 0 5px 5px black; /* For made the header "3D" */
+    position: sticky; /* For make the header fixed when the user scroll down */
+    top: 0px; /* For align on top of the page */
+    text-align: center; /* For align the span in center */
+}
+
+/* Syled all the span and make them an header */
+header > span {
+    font-size: 4em;
+    margin: 0 180px; /* Margin propriety for create a distance for the span elements */
+    font-family: 'Montserrat' , sans-serif;
+    font-weight: bold;
+}
+
+/* --------------------------MAIN------------------ */
+
+body {
+    display: block;
+    width: 100%;
+}
+
+main {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+/* For style the symbol of the list */
+ul {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+    list-style: none;
+    width: 75%;
+    padding: 0;
+}
+
+/* For add the padding */
+li {
+    padding: 30px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For alternate the color for every row */
+li:nth-child(2n) {
+    background-color: white;
+}
+
+li:nth-child(2n + 1) {
+    background-color: var(--background-color-for-row);
+}
+
+li:hover{
+    background-color: var(--background-color-row-hover);
+}
+
+.country-name , .population{
+    font-size: 2.5em;
+    margin: 0 240px;
+    font-family: 'Inter' , sans-serif;
+}
+
+.population {
+    font-style: italic;
+}
+
+/* Style only the cpuntry-name */
+li > .country-name {
+    font-weight: bold;
+}
+
+/* --------------------------IMAGES--------------- */
+
+.flag-container {
+    width: 250px;
+    height: 200px;
+}
+
+.flag-container > img {
+    width: 100%; /* For align the image in the div block */
+}
+
