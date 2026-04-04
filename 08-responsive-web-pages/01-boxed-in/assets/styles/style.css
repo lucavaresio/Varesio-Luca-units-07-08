@@ -1,0 +1,92 @@
+/*
+
+style.css
+
+this css file is used for style the page and using the media queries
+for make this site responsive based on the viewport and the display
+of the device
+
+this website is written on mobile-first
+
+*/
+
+* , *::after , *::before {
+    box-sizing: inherit;
+}
+
+:root {
+    --background-of-page:rgb(215, 243, 253); /* Custom propriety for color of the background */
+}
+
+html {
+    box-sizing: border-box;
+    background-color: var(--background-of-page);
+    font-size: 14px; /* Default font-size rule for all the html elements that require text */
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+body {
+    width: 100%; /* Width propriety is necessary for set the entire body on the 100% of the viewport */
+}
+
+/* --------------- DIV CONTAINER -------------------- */
+
+/* Selector for the display < 568px */
+
+#responsive-images {
+    display: block;
+    margin: 70px auto;
+    border: 2px solid black;
+    width: 50%;
+    height: 450px;
+    background-size: cover; /* Rule for displat the entire image on the div container */
+    background-image: url('../images/image-0.webp'); /* First image for mobile devices that have 568px of viewport */
+    overflow: hidden;  /* prevents content from spilling over the edges */
+
+}
+
+/* ---------------------MEDIA QUERIES ------------------ */
+
+/* For mobile phone landscape */
+@media screen and (min-width: 568px) {
+    #responsive-images {
+        background-image: url('../images/image-1.webp');
+        height: 500px;
+    }
+}
+
+/*
+
+In all media queries is setted the height propriety based on the viewport
+for not cover the image in the div container
+
+*/
+
+/* For tablet */
+@media screen and (min-width: 768px) {
+    #responsive-images {
+        background-image: url('../images/image-2.webp');
+        height: 350px;
+    }
+}
+
+/* For desktop */
+@media screen and (min-width: 1024px) {
+    #responsive-images {
+        background-image: url('../images/image-3.webp');
+        height: 500px;
+    }
+}
+
+/* For big desktop */
+@media screen and (min-width: 1200px) {
+    #responsive-images {
+        background-image: url('../images/image-4.webp');
+        height: 1200px;
+        width: 70%;
+    }
+}
