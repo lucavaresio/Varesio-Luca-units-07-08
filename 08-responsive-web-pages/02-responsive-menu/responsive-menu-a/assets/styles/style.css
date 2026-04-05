@@ -1,0 +1,176 @@
+/*
+
+style.css
+
+this stylesheet resource style the page in mobile-first
+method.
+
+Every style for every type of display is written with 
+media queries and using the min-width propriety with every bootstrap
+
+*/
+
+* , *::after , *::before {
+    box-sizing: inherit;
+}
+
+/* List of the custom propriety of the page in the pseudo class :root */
+:root {
+    --background-color-page: rgb(239, 201, 201);
+    --bacground-color-header:rgb(240, 135, 135);
+    --paragraph-color: rgb(69, 69, 69);
+    --background-color-anchor: rgb(255, 207, 207);
+}
+
+html {
+    box-sizing: border-box;
+    background-color: var(--background-color-page);
+    width: 100%; /* Declaration for take the 100% of the viewport of the display */
+    font-size: 14px;
+}
+
+/* ----------------------HEADER------------------ */
+
+header {
+    width: 100%;
+    background-color: var(--bacground-color-header);
+    height: 260px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+header ul {
+    list-style: none; /* For delete the single point near the list item */
+    display: inline-block;
+    margin: 5% 0; /* The margin take the 5% of top and bottom of his container and 0 for the right and left of his container */
+    padding: 0;
+    text-align: center;
+}
+
+ul > li {
+    display: inline-block;
+    padding: 3px;
+    border: 1px dotted black;
+    margin: 0 5px;
+}
+
+/* Link in the nav menu */
+li > a {
+    color: black;
+    text-decoration: none; /* For delete the underline decoration */
+    font-size: 1.5em;
+}
+
+li:hover {
+    background-color: var(--background-color-anchor);
+}
+
+li > a:hover {
+    color: red;
+    
+}
+
+li > a:active {
+    color: red;
+}
+
+li > a:visited {
+    color: black
+}
+
+li > a:visited:hover { /* Selector for the link visited and hover with the cursor */
+    color: red;
+    background-color: var(--background-color-anchor);
+}
+
+/* --------------------MAIN CONTENT----------------------------- */
+
+section {
+    display: block;
+    width: 70%;
+    margin: 10px auto; /* Auto margin for center the section in the page */
+    border: 1px dotted black;
+}
+
+section > h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+h2 + p {
+    color: var(--paragraph-color);
+    text-align: center;
+    font-size: 1.3em;
+    padding: 10px;
+}
+
+/* ----------------MEDIA QUERIES------------------- */
+
+/* For display from 437px to 568px */
+@media screen and (min-width: 437px) {
+    header {
+        height: 180px;
+    }
+}
+
+/* For display from 568px to 768px */
+@media screen and (min-width: 568px) {
+    header {
+        height: 160px;
+    }
+
+    header ul {
+        display: block; /* When the display is more bigger than 568px or equal the display of the ul becomes block for center the nav in the page */
+    }
+}
+
+/* For display from 768px to 1024px */
+@media screen and (min-width: 768px) {
+    li > a {
+        font-size: 1.8em;
+    }
+
+    header {
+        height: 200px;
+    }
+}
+
+/* For display from 1024px to 1200px */
+@media screen and (min-width: 1024px) {
+    li > a {
+        font-size: 1.9em;
+    }
+
+    nav li {
+        padding: 10px;
+    }
+    
+    header {
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+}
+
+/* For display from 1200px or more bigger */
+@media screen and (min-width: 1200px) {
+    li > a {
+        font-size: 2em;
+    }
+
+    h1 {
+        font-size: 5em;
+    }
+    
+    header {
+        height: 250px;
+    }
+}
+
+
+

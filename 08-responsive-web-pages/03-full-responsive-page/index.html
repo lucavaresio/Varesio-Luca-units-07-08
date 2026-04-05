@@ -1,0 +1,124 @@
+<!-- index.html
+
+Main HTML page for WebCraft Blog.
+A responsive blog page built as Exercise 3 for the Web and Mobile App Developer course.
+Contains a fixed header with navigation, a hero section, two article cards,
+a sidebar, and a footer.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Full Responsive Page</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link rel="stylesheet" href="./assets/styles/myNormalize.css" />
+</head>
+    <body>
+
+        <!-- Fixed header with site name and navigation -->
+        <header class="site-header">
+            <div class="header-inner">
+                <span class="logo">WebCraft</span>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Learn Web Development, One Post at a Time</h1>
+            <p>Practical articles on HTML, CSS, and JavaScript for developers who are still learning.</p>
+            <a href="#" class="btn">Browse Articles</a>
+        </section>
+
+        <!-- Main wrapper: holds the articles and the sidebar -->
+        <div class="wrapper">
+
+            <!-- Two article cards -->
+            <main class="main-content">
+
+                <article class="card">
+                    <!--
+                        Image placeholder: currently just a colored block.
+                        To use a real photo, download one from https://unsplash.com
+                        (search "css code screen"), put it in an images/ folder,
+                        and add: background-image: url('images/css.jpg'); in style.css
+                    -->
+                    <div class="card-image card-image--css"></div>
+                    <div class="card-body">
+                        <span class="tag">CSS</span>
+                        <h2>Understanding CSS Flexbox</h2>
+                        <p class="date">March 20, 2026</p>
+                        <p>Flexbox is one of the most powerful layout tools in CSS. Once you understand the main axis and cross axis, everything starts to click into place.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <!--
+                        To use a real photo here, search "smartphone developer" on unsplash.com
+                    -->
+                    <div class="card-image card-image--mobile"></div>
+                    <div class="card-body">
+                        <span class="tag">Design</span>
+                        <h2>Why Mobile-First Matters</h2>
+                        <p class="date">March 28, 2026</p>
+                        <p>Designing for mobile first forces you to focus on what truly matters: content and core functionality. As screens get larger, you add features progressively.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+            </main>
+
+            <!-- Sidebar with three widgets -->
+            <aside class="sidebar">
+
+                <div class="widget">
+                    <h3>About</h3>
+                    <p>WebCraft is a blog for developers learning to build for the web, with practical examples and honest explanations.</p>
+                </div>
+
+                <div class="widget">
+                    <h3>Recent Posts</h3>
+                    <ul class="recent-posts">
+                        <li><a href="#">Getting Started with CSS Grid</a></li>
+                        <li><a href="#">HTML5 Semantic Elements</a></li>
+                        <li><a href="#">Media Queries: A Practical Guide</a></li>
+                        <li><a href="#">How to Use CSS Variables</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Topics</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag-link">HTML</a>
+                        <a href="#" class="tag-link">CSS</a>
+                        <a href="#" class="tag-link">Responsive</a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2026 WebCraft Blog &mdash; Made while learning web development.</p>
+            <nav>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </body>
+</html>
